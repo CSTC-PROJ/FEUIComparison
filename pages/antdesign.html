@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ant Design Admin Portal - Frontend Showcase</title>
+    <link href="https://cdn.jsdelivr.net/npm/antd@5.12.8/dist/reset.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.8/antd.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/antdesign.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="ant-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <span class="logo-icon">🐜</span>
+                    <span class="logo-text">Ant Design Admin</span>
+                    <span class="tech-badge">Enterprise UI</span>
+                </div>
+                <div class="header-actions">
+                    <div class="notification-wrapper">
+                        <button class="notification-btn" id="notificationBtn">
+                            <span class="notification-icon">🔔</span>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="notification-header">
+                                <h4>Notifications</h4>
+                                <button class="close-btn" id="closeNotifications">×</button>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item">
+                                    <div class="notification-avatar success">✓</div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">Task completed</div>
+                                        <div class="notification-desc">Your report has been generated</div>
+                                        <div class="notification-time">5 minutes ago</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-avatar warning">⚠</div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">System maintenance</div>
+                                        <div class="notification-desc">Scheduled for tonight</div>
+                                        <div class="notification-time">2 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-avatar info">ℹ</div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">New feature available</div>
+                                        <div class="notification-desc">Check out the latest updates</div>
+                                        <div class="notification-time">1 day ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-dropdown">
+                        <button class="user-btn" id="userBtn">
+                            <div class="user-avatar">AD</div>
+                            <span class="user-name">Ant User</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Layout -->
+        <div class="ant-layout">
+            <!-- Sidebar -->
+            <aside class="ant-sider">
+                <nav class="sider-menu">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link active" data-tab="dashboard">
+                                <span class="menu-icon">📊</span>
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-tab="users">
+                                <span class="menu-icon">👥</span>
+                                <span class="menu-title">Users</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-tab="analytics">
+                                <span class="menu-icon">📈</span>
+                                <span class="menu-title">Analytics</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-tab="products">
+                                <span class="menu-icon">📦</span>
+                                <span class="menu-title">Products</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-tab="orders">
+                                <span class="menu-icon">🛒</span>
+                                <span class="menu-title">Orders</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="menu-divider"></div>
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-tab="settings">
+                                <span class="menu-icon">⚙️</span>
+                                <span class="menu-title">Settings</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-tab="help">
+                                <span class="menu-icon">❓</span>
+                                <span class="menu-title">Help</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Content -->
+            <main class="ant-content">
+                <div class="content-header">
+                    <div class="breadcrumb">
+                        <span class="breadcrumb-item">Home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-item current" id="currentBreadcrumb">Dashboard</span>
+                    </div>
+                    <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                    <p class="page-description" id="pageDescription">Welcome to your Ant Design admin dashboard</p>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="stats-row" id="statsRow">
+                    <div class="stat-card primary">
+                        <div class="stat-content">
+                            <div class="stat-value">4,267</div>
+                            <div class="stat-title">Total Users</div>
+                        </div>
+                        <div class="stat-icon">
+                            <span>👥</span>
+                        </div>
+                        <div class="stat-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-text">+22%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card success">
+                        <div class="stat-content">
+                            <div class="stat-value">$89,234</div>
+                            <div class="stat-title">Revenue</div>
+                        </div>
+                        <div class="stat-icon">
+                            <span>💰</span>
+                        </div>
+                        <div class="stat-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-text">+16%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-content">
+                            <div class="stat-value">678</div>
+                            <div class="stat-title">Orders</div>
+                        </div>
+                        <div class="stat-icon">
+                            <span>📦</span>
+                        </div>
+                        <div class="stat-trend negative">
+                            <span class="trend-icon">↘</span>
+                            <span class="trend-text">-3%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card info">
+                        <div class="stat-content">
+                            <div class="stat-value">6.8%</div>
+                            <div class="stat-title">Conversion</div>
+                        </div>
+                        <div class="stat-icon">
+                            <span>📊</span>
+                        </div>
+                        <div class="stat-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-text">+2.1%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="ant-card" id="dataCard">
+                    <div class="card-header">
+                        <div class="card-title">Recent Users</div>
+                        <button class="ant-btn primary" id="addUserBtn">
+                            <span class="btn-icon">+</span>
+                            Add User
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="ant-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Join Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTableBody">
+                                    <!-- Data will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="ant-card" id="tabContent" style="display: none;">
+                    <div class="empty-state">
+                        <div class="empty-icon">📄</div>
+                        <div class="empty-title" id="emptyTitle">Content Area</div>
+                        <div class="empty-description">This section would contain the specific content for the selected tab.</div>
+                        <div class="empty-note">This is a demo showcasing Ant Design component patterns.</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/static/js/antdesign.js"></script>
+</body>
+</html>

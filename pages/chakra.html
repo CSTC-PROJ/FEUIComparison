@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chakra UI Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="/static/css/chakra.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="chakra-header">
+        <div class="chakra-container">
+            <div class="chakra-flex" style="justify-content: space-between; align-items: center;">
+                <div class="chakra-hstack">
+                    <h1 class="chakra-heading">🎨 Chakra UI Admin</h1>
+                    <span class="chakra-badge">Chakra UI</span>
+                </div>
+                <div class="chakra-hstack">
+                    <button class="chakra-button" onclick="toggleNotifications()">🔔</button>
+                    <div class="chakra-hstack">
+                        <img src="https://ui-avatars.com/api/?name=Chakra+User&background=805ad5&color=fff" alt="User" class="chakra-avatar">
+                        <span class="chakra-text">Chakra User</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chakra-flex">
+        <!-- Sidebar -->
+        <div class="chakra-sidebar">
+            <div class="chakra-vstack">
+                <p class="chakra-text" style="font-size: 0.8rem; font-weight: bold; color: rgba(255,255,255,0.7); margin-bottom: 1rem;">MAIN</p>
+                <button class="chakra-button active" onclick="setActiveTab('dashboard')">📊 Dashboard</button>
+                <button class="chakra-button" onclick="setActiveTab('users')">👥 Users</button>
+                <button class="chakra-button" onclick="setActiveTab('analytics')">📈 Analytics</button>
+
+                <p class="chakra-text" style="font-size: 0.8rem; font-weight: bold; color: rgba(255,255,255,0.7); margin: 2rem 0 1rem 0;">MANAGEMENT</p>
+                <button class="chakra-button" onclick="setActiveTab('products')">📦 Products</button>
+                <button class="chakra-button" onclick="setActiveTab('orders')">🛒 Orders</button>
+
+                <p class="chakra-text" style="font-size: 0.8rem; font-weight: bold; color: rgba(255,255,255,0.7); margin: 2rem 0 1rem 0;">SETTINGS</p>
+                <button class="chakra-button" onclick="setActiveTab('settings')">⚙️ Settings</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="chakra-main-content">
+            <div class="chakra-container">
+                <!-- Page Header -->
+                <div class="chakra-flex" style="justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <div>
+                        <h2 class="chakra-heading" id="pageTitle">Dashboard</h2>
+                        <p class="chakra-text" id="pageSubtitle">Welcome to your Chakra UI admin dashboard</p>
+                    </div>
+                    <button class="chakra-button chakra-button-primary" onclick="exportData()">📥 Export</button>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="chakra-grid" id="statsGrid">
+                    <div class="chakra-card chakra-stat hover-lift">
+                        <div class="chakra-flex" style="justify-content: space-between; align-items: center;">
+                            <div>
+                                <div class="stat-number">1,247</div>
+                                <div class="stat-label">Total Users</div>
+                                <div class="stat-help positive">↗ +12%</div>
+                            </div>
+                            <div class="stat-icon">👥</div>
+                        </div>
+                    </div>
+
+                    <div class="chakra-card chakra-stat hover-lift">
+                        <div class="chakra-flex" style="justify-content: space-between; align-items: center;">
+                            <div>
+                                <div class="stat-number">$45,678</div>
+                                <div class="stat-label">Revenue</div>
+                                <div class="stat-help positive">↗ +8%</div>
+                            </div>
+                            <div class="stat-icon">💰</div>
+                        </div>
+                    </div>
+
+                    <div class="chakra-card chakra-stat hover-lift">
+                        <div class="chakra-flex" style="justify-content: space-between; align-items: center;">
+                            <div>
+                                <div class="stat-number">234</div>
+                                <div class="stat-label">Orders</div>
+                                <div class="stat-help negative">↘ -3%</div>
+                            </div>
+                            <div class="stat-icon">📦</div>
+                        </div>
+                    </div>
+
+                    <div class="chakra-card chakra-stat hover-lift">
+                        <div class="chakra-flex" style="justify-content: space-between; align-items: center;">
+                            <div>
+                                <div class="stat-number">3.2%</div>
+                                <div class="stat-label">Conversion</div>
+                                <div class="stat-help positive">↗ +0.5%</div>
+                            </div>
+                            <div class="stat-icon">📊</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="chakra-card" id="usersTable">
+                    <div class="card-header">
+                        <div class="chakra-flex" style="justify-content: space-between; align-items: center;">
+                            <h3 class="chakra-heading">Recent Users</h3>
+                            <button class="chakra-button chakra-button-primary" onclick="addUser()">➕ Add User</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="chakra-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody">
+                                <!-- Data populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Other Content -->
+                <div class="chakra-card" id="otherContent" style="display: none;">
+                    <div class="card-header">
+                        <h3 class="chakra-heading" id="otherContentTitle">Content</h3>
+                    </div>
+                    <div class="card-body" style="text-align: center; padding: 3rem;">
+                        <p id="otherContentText">Content would be displayed here.</p>
+                        <p class="chakra-text" style="color: #666; font-size: 0.9rem;">This is a demo showing Chakra UI component structure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/chakra.js"></script>
+</body>
+</html>

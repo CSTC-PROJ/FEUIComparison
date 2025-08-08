@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure CSS Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/purecss.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="logo">
+                    <i class="fas fa-cube"></i> Pure CSS Admin
+                    <span class="badge">Pure CSS</span>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="header-actions">
+                    <button class="pure-button notification-btn" onclick="toggleNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge-alert">3</span>
+                    </button>
+                    <div class="user-menu">
+                        <img src="https://ui-avatars.com/api/?name=Pure+User&background=0078e7&color=fff" alt="User" class="user-avatar">
+                        <span>Pure User</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pure-g main-layout">
+        <!-- Sidebar -->
+        <div class="pure-u-1-5 sidebar">
+            <div class="nav-section">
+                <h6 class="nav-title">MAIN</h6>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active" onclick="setActiveTab('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" class="nav-link" onclick="setActiveTab('users')"><i class="fas fa-users"></i> Users</a></li>
+                    <li><a href="#" class="nav-link" onclick="setActiveTab('analytics')"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h6 class="nav-title">MANAGEMENT</h6>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link" onclick="setActiveTab('products')"><i class="fas fa-box"></i> Products</a></li>
+                    <li><a href="#" class="nav-link" onclick="setActiveTab('orders')"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h6 class="nav-title">SETTINGS</h6>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link" onclick="setActiveTab('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="pure-u-4-5 main-content">
+            <!-- Page Header -->
+            <div class="pure-g">
+                <div class="pure-u-3-4">
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <p id="pageSubtitle">Welcome to your Pure CSS admin dashboard</p>
+                </div>
+                <div class="pure-u-1-4">
+                    <button class="pure-button pure-button-primary" onclick="exportData()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="pure-g stats-grid" id="statsGrid">
+                <div class="pure-u-1-4">
+                    <div class="card stats-card">
+                        <div class="card-content">
+                            <div class="stat-icon primary">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>1,247</h3>
+                            <p>Total Users</p>
+                            <span class="stat-change positive">↗ +12%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pure-u-1-4">
+                    <div class="card stats-card">
+                        <div class="card-content">
+                            <div class="stat-icon success">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h3>$45,678</h3>
+                            <p>Revenue</p>
+                            <span class="stat-change positive">↗ +8%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pure-u-1-4">
+                    <div class="card stats-card">
+                        <div class="card-content">
+                            <div class="stat-icon warning">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3>234</h3>
+                            <p>Orders</p>
+                            <span class="stat-change negative">↘ -3%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pure-u-1-4">
+                    <div class="card stats-card">
+                        <div class="card-content">
+                            <div class="stat-icon info">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>3.2%</h3>
+                            <p>Conversion</p>
+                            <span class="stat-change positive">↗ +0.5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="card" id="usersTable">
+                <div class="card-header">
+                    <div class="pure-g">
+                        <div class="pure-u-3-4">
+                            <h4>Recent Users</h4>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <button class="pure-button pure-button-primary" onclick="addUser()">
+                                <i class="fas fa-plus"></i> Add User
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <table class="pure-table pure-table-horizontal">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- Data populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Other Content -->
+            <div class="card" id="otherContent" style="display: none;">
+                <div class="card-header">
+                    <h4 id="otherContentTitle">Content</h4>
+                </div>
+                <div class="card-content">
+                    <div style="text-align: center; padding: 2rem;">
+                        <p id="otherContentText">Content would be displayed here.</p>
+                        <p><small>This is a demo showing Pure CSS framework structure.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/purecss.js"></script>
+</body>
+</html>

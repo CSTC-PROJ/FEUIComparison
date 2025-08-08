@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaisyUI Admin Portal - Frontend Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/static/css/daisyui.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="navbar bg-primary text-primary-content">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+                    </svg>
+                </div>
+            </div>
+            <a class="btn btn-ghost text-xl">
+                🌼 DaisyUI Admin
+                <div class="badge badge-accent">DaisyUI</div>
+            </a>
+        </div>
+        
+        <div class="navbar-end">
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <div class="indicator">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path>
+                        </svg>
+                        <span class="badge badge-xs badge-primary indicator-item">3</span>
+                    </div>
+                </div>
+                <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                    <div class="card-body">
+                        <span class="font-bold text-lg">3 Notifications</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block">View all</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img alt="User Avatar" src="https://ui-avatars.com/api/?name=Daisy+User&background=570df8&color=fff" />
+                    </div>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a>Profile</a></li>
+                    <li><a>Settings</a></li>
+                    <li><a>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="drawer lg:drawer-open">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        
+        <!-- Main Content -->
+        <div class="drawer-content flex flex-col">
+            <div class="p-6">
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <h1 class="text-4xl font-bold" id="pageTitle">Dashboard</h1>
+                    <p class="text-base-content/70 mt-2" id="pageSubtitle">Welcome to your DaisyUI admin dashboard</p>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="statsGrid">
+                    <div class="stat bg-base-100 shadow rounded-box">
+                        <div class="stat-figure text-primary">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-title">Total Users</div>
+                        <div class="stat-value text-primary">1,247</div>
+                        <div class="stat-desc text-success">↗ +12% from last month</div>
+                    </div>
+                    
+                    <div class="stat bg-base-100 shadow rounded-box">
+                        <div class="stat-figure text-secondary">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-title">Revenue</div>
+                        <div class="stat-value text-secondary">$45,678</div>
+                        <div class="stat-desc text-success">↗ +8% from last month</div>
+                    </div>
+                    
+                    <div class="stat bg-base-100 shadow rounded-box">
+                        <div class="stat-figure text-accent">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5zM6 9a1 1 0 112 0v6a1 1 0 11-2 0V9zm6 0a1 1 0 112 0v6a1 1 0 11-2 0V9z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-title">Orders</div>
+                        <div class="stat-value text-accent">234</div>
+                        <div class="stat-desc text-error">↘ -3% from last month</div>
+                    </div>
+                    
+                    <div class="stat bg-base-100 shadow rounded-box">
+                        <div class="stat-figure text-info">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-title">Conversion</div>
+                        <div class="stat-value text-info">3.2%</div>
+                        <div class="stat-desc text-success">↗ +0.5% from last month</div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="card bg-base-100 shadow-xl" id="usersTable">
+                    <div class="card-body">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="card-title">Recent Users</h2>
+                            <button class="btn btn-primary" onclick="addUser()">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                Add User
+                            </button>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="table table-zebra">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTableBody">
+                                    <!-- Data populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Content -->
+                <div class="card bg-base-100 shadow-xl hidden" id="otherContent">
+                    <div class="card-body">
+                        <h2 class="card-title" id="otherContentTitle">Content</h2>
+                        <div class="text-center py-8">
+                            <p id="otherContentText">Content would be displayed here.</p>
+                            <p class="text-base-content/70 mt-2">This is a demo showing DaisyUI component structure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="drawer-side">
+            <label for="drawer-toggle" aria-label="close sidebar" class="drawer-overlay"></label>
+            <aside class="min-h-full w-64 bg-base-200">
+                <div class="p-4">
+                    <ul class="menu">
+                        <li class="menu-title">Main</li>
+                        <li><a class="active" onclick="setActiveTab('dashboard')">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            Dashboard
+                        </a></li>
+                        <li><a onclick="setActiveTab('users')">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+                            </svg>
+                            Users
+                        </a></li>
+                        <li><a onclick="setActiveTab('analytics')">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                            </svg>
+                            Analytics
+                        </a></li>
+                        
+                        <li class="menu-title">Management</li>
+                        <li><a onclick="setActiveTab('products')">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5zM6 9a1 1 0 112 0v6a1 1 0 11-2 0V9zm6 0a1 1 0 112 0v6a1 1 0 11-2 0V9z" clip-rule="evenodd"></path>
+                            </svg>
+                            Products
+                        </a></li>
+                        <li><a onclick="setActiveTab('orders')">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                            </svg>
+                            Orders
+                        </a></li>
+                        
+                        <li class="menu-title">Settings</li>
+                        <li><a onclick="setActiveTab('settings')">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                            </svg>
+                            Settings
+                        </a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="/static/js/daisyui.js"></script>
+</body>
+</html>

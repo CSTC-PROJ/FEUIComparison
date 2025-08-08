@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milligram Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <link rel="stylesheet" href="/static/css/milligram.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <h1 class="logo">⚡ Milligram Admin <span class="badge">Milligram</span></h1>
+                </div>
+                <div class="column column-25">
+                    <div class="header-actions">
+                        <button class="button button-clear notification-btn" onclick="toggleNotifications()">
+                            🔔 <span class="badge badge-alert">3</span>
+                        </button>
+                        <div class="user-menu">
+                            <img src="https://ui-avatars.com/api/?name=Milligram+User&background=9b4dca&color=fff" alt="User" class="user-avatar">
+                            <span>Milligram User</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="column column-20 sidebar">
+                <nav class="navigation">
+                    <div class="nav-section">
+                        <h6 class="nav-title">MAIN</h6>
+                        <ul class="nav-list">
+                            <li><a href="#" class="nav-link active" onclick="setActiveTab('dashboard')">📊 Dashboard</a></li>
+                            <li><a href="#" class="nav-link" onclick="setActiveTab('users')">👥 Users</a></li>
+                            <li><a href="#" class="nav-link" onclick="setActiveTab('analytics')">📈 Analytics</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <h6 class="nav-title">MANAGEMENT</h6>
+                        <ul class="nav-list">
+                            <li><a href="#" class="nav-link" onclick="setActiveTab('products')">📦 Products</a></li>
+                            <li><a href="#" class="nav-link" onclick="setActiveTab('orders')">🛒 Orders</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <h6 class="nav-title">SETTINGS</h6>
+                        <ul class="nav-list">
+                            <li><a href="#" class="nav-link" onclick="setActiveTab('settings')">⚙️ Settings</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="column main-content">
+                <!-- Page Header -->
+                <div class="row">
+                    <div class="column">
+                        <h2 id="pageTitle">Dashboard</h2>
+                        <p id="pageSubtitle">Welcome to your Milligram admin dashboard</p>
+                    </div>
+                    <div class="column column-25">
+                        <button class="button" onclick="exportData()">Export Data</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="row" id="statsGrid">
+                    <div class="column">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <div class="stat-icon">👥</div>
+                                <h3>1,247</h3>
+                                <p>Total Users</p>
+                                <span class="stat-change positive">↗ +12%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <div class="stat-icon">💰</div>
+                                <h3>$45,678</h3>
+                                <p>Revenue</p>
+                                <span class="stat-change positive">↗ +8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <div class="stat-icon">📦</div>
+                                <h3>234</h3>
+                                <p>Orders</p>
+                                <span class="stat-change negative">↘ -3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <div class="stat-icon">📊</div>
+                                <h3>3.2%</h3>
+                                <p>Conversion</p>
+                                <span class="stat-change positive">↗ +0.5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="card" id="usersTable">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="column">
+                                <h4>Recent Users</h4>
+                            </div>
+                            <div class="column column-25">
+                                <button class="button" onclick="addUser()">Add User</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody">
+                                <!-- Data populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Other Content -->
+                <div class="card" id="otherContent" style="display: none;">
+                    <div class="card-header">
+                        <h4 id="otherContentTitle">Content</h4>
+                    </div>
+                    <div class="card-content">
+                        <div style="text-align: center; padding: 2rem;">
+                            <p id="otherContentText">Content would be displayed here.</p>
+                            <p><small>This is a demo showing Milligram framework structure.</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/milligram.js"></script>
+</body>
+</html>

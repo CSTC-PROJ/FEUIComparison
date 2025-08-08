@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailGrids Admin Portal - Frontend Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/tailgrids.css">
+</head>
+<body class="bg-gray-50 font-inter">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-2xl">🎯</span>
+                        <h1 class="text-xl font-bold text-primary">TailGrids Admin</h1>
+                        <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-xs font-medium">Tailwind Blocks</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button id="notificationBtn" class="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                            <span class="text-lg">🔔</span>
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </button>
+                        <div id="notificationDropdown" class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 hidden">
+                            <div class="p-4 border-b border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-lg font-semibold text-gray-900">Notifications</h3>
+                                    <button id="closeNotifications" class="text-gray-400 hover:text-gray-600">
+                                        <span class="text-xl">×</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="max-h-64 overflow-y-auto">
+                                <div class="p-4 border-b border-gray-100 hover:bg-gray-50">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                            <span class="text-green-600 text-sm">✓</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-sm font-medium text-gray-900">Task completed</p>
+                                            <p class="text-sm text-gray-500">Your monthly report is ready</p>
+                                            <p class="text-xs text-gray-400 mt-1">2 minutes ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 border-b border-gray-100 hover:bg-gray-50">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <span class="text-blue-600 text-sm">ℹ</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-sm font-medium text-gray-900">System update</p>
+                                            <p class="text-sm text-gray-500">New features available</p>
+                                            <p class="text-xs text-gray-400 mt-1">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <button id="userMenuBtn" class="flex items-center space-x-2 p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-medium">
+                                TG
+                            </div>
+                            <span class="text-sm font-medium">TailGrids User</span>
+                            <span class="text-xs">▼</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="flex h-screen pt-16">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-sm border-r border-gray-200 fixed h-full overflow-y-auto">
+            <nav class="p-4 space-y-2">
+                <div class="space-y-1">
+                    <a href="#" class="nav-link active flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-tab="dashboard">
+                        <span class="text-lg">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-tab="users">
+                        <span class="text-lg">👥</span>
+                        <span>Users</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-tab="analytics">
+                        <span class="text-lg">📈</span>
+                        <span>Analytics</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-tab="products">
+                        <span class="text-lg">📦</span>
+                        <span>Products</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-tab="orders">
+                        <span class="text-lg">🛒</span>
+                        <span>Orders</span>
+                    </a>
+                </div>
+                <div class="border-t border-gray-200 pt-4 mt-4">
+                    <div class="space-y-1">
+                        <a href="#" class="nav-link flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-tab="settings">
+                            <span class="text-lg">⚙️</span>
+                            <span>Settings</span>
+                        </a>
+                        <a href="#" class="nav-link flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors" data-tab="support">
+                            <span class="text-lg">💬</span>
+                            <span>Support</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 ml-64 p-6 overflow-y-auto">
+            <!-- Page Header -->
+            <div class="mb-8">
+                <div class="flex items-center space-x-2 text-sm text-gray-500 mb-2">
+                    <span>Home</span>
+                    <span>/</span>
+                    <span id="breadcrumb">Dashboard</span>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2" id="pageTitle">Dashboard</h1>
+                <p class="text-gray-600" id="pageSubtitle">Welcome to your TailGrids admin dashboard</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="statsGrid">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Total Users</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2">5,423</p>
+                            <div class="flex items-center mt-2">
+                                <span class="text-green-600 text-sm font-medium">↗ +25%</span>
+                                <span class="text-gray-500 text-sm ml-2">vs last month</span>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">👥</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Revenue</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2">$94,567</p>
+                            <div class="flex items-center mt-2">
+                                <span class="text-green-600 text-sm font-medium">↗ +18%</span>
+                                <span class="text-gray-500 text-sm ml-2">vs last month</span>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">💰</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Orders</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2">789</p>
+                            <div class="flex items-center mt-2">
+                                <span class="text-red-600 text-sm font-medium">↘ -7%</span>
+                                <span class="text-gray-500 text-sm ml-2">vs last month</span>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">📦</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Conversion</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2">7.2%</p>
+                            <div class="flex items-center mt-2">
+                                <span class="text-green-600 text-sm font-medium">↗ +3.1%</span>
+                                <span class="text-gray-500 text-sm ml-2">vs last month</span>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200" id="dataTable">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-semibold text-gray-900">Recent Users</h2>
+                        <button id="addUserBtn" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+                            + Add User
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Join Date</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody" class="bg-white divide-y divide-gray-200">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center" id="tabContent" style="display: none;">
+                <div class="max-w-md mx-auto">
+                    <div class="text-6xl mb-4">📄</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2" id="emptyTitle">Content Area</h3>
+                    <p class="text-gray-600 mb-2">This section would contain the specific content for the selected tab.</p>
+                    <p class="text-sm text-gray-500">This is a demo showcasing TailGrids component patterns.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/tailgrids.js"></script>
+</body>
+</html>

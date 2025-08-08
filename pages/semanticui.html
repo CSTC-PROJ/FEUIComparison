@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic UI Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="/static/css/semanticui.css">
+</head>
+<body>
+    <!-- Top Menu -->
+    <div class="ui inverted menu">
+        <div class="item">
+            <i class="cube icon"></i>
+            Semantic UI Admin
+            <div class="ui label">Semantic UI</div>
+        </div>
+        <div class="right menu">
+            <div class="ui dropdown item">
+                <i class="bell icon"></i>
+                <div class="ui red circular label">3</div>
+                <div class="menu">
+                    <div class="item">New user registered</div>
+                    <div class="item">Order completed</div>
+                    <div class="item">System update</div>
+                </div>
+            </div>
+            <div class="ui dropdown item">
+                <img class="ui avatar image" src="https://ui-avatars.com/api/?name=Semantic+User&background=21ba45&color=fff">
+                Semantic User
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item"><i class="user icon"></i> Profile</div>
+                    <div class="item"><i class="settings icon"></i> Settings</div>
+                    <div class="divider"></div>
+                    <div class="item"><i class="sign out icon"></i> Logout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui grid">
+        <!-- Sidebar -->
+        <div class="four wide column sidebar-column">
+            <div class="ui vertical menu fluid">
+                <div class="item">
+                    <div class="header">Main</div>
+                    <div class="menu">
+                        <a class="item active" onclick="setActiveTab('dashboard')">
+                            <i class="tachometer alternate icon"></i>
+                            Dashboard
+                        </a>
+                        <a class="item" onclick="setActiveTab('users')">
+                            <i class="users icon"></i>
+                            Users
+                        </a>
+                        <a class="item" onclick="setActiveTab('analytics')">
+                            <i class="chart bar icon"></i>
+                            Analytics
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="header">Management</div>
+                    <div class="menu">
+                        <a class="item" onclick="setActiveTab('products')">
+                            <i class="box icon"></i>
+                            Products
+                        </a>
+                        <a class="item" onclick="setActiveTab('orders')">
+                            <i class="shopping cart icon"></i>
+                            Orders
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="header">Settings</div>
+                    <div class="menu">
+                        <a class="item" onclick="setActiveTab('settings')">
+                            <i class="cog icon"></i>
+                            Settings
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="twelve wide column main-content">
+            <div class="ui container">
+                <!-- Page Header -->
+                <div class="ui grid">
+                    <div class="twelve wide column">
+                        <h1 class="ui header" id="pageTitle">Dashboard</h1>
+                        <p id="pageSubtitle">Welcome to your Semantic UI admin dashboard</p>
+                    </div>
+                    <div class="four wide column">
+                        <button class="ui primary button" onclick="exportData()">
+                            <i class="download icon"></i>
+                            Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="ui four column grid" id="statsGrid">
+                    <div class="column">
+                        <div class="ui card stats-card">
+                            <div class="content">
+                                <div class="right floated">
+                                    <i class="users large blue icon"></i>
+                                </div>
+                                <div class="header">1,247</div>
+                                <div class="meta">Total Users</div>
+                                <div class="description">
+                                    <div class="ui green label">↗ +12%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column">
+                        <div class="ui card stats-card">
+                            <div class="content">
+                                <div class="right floated">
+                                    <i class="dollar sign large green icon"></i>
+                                </div>
+                                <div class="header">$45,678</div>
+                                <div class="meta">Revenue</div>
+                                <div class="description">
+                                    <div class="ui green label">↗ +8%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column">
+                        <div class="ui card stats-card">
+                            <div class="content">
+                                <div class="right floated">
+                                    <i class="shopping cart large orange icon"></i>
+                                </div>
+                                <div class="header">234</div>
+                                <div class="meta">Orders</div>
+                                <div class="description">
+                                    <div class="ui red label">↘ -3%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column">
+                        <div class="ui card stats-card">
+                            <div class="content">
+                                <div class="right floated">
+                                    <i class="chart line large purple icon"></i>
+                                </div>
+                                <div class="header">3.2%</div>
+                                <div class="meta">Conversion</div>
+                                <div class="description">
+                                    <div class="ui green label">↗ +0.5%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="ui segment" id="usersTable">
+                    <div class="ui grid">
+                        <div class="twelve wide column">
+                            <h3 class="ui header">Recent Users</h3>
+                        </div>
+                        <div class="four wide column">
+                            <button class="ui primary button" onclick="addUser()">
+                                <i class="plus icon"></i>
+                                Add User
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <table class="ui celled table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- Data populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Other Content -->
+                <div class="ui segment" id="otherContent" style="display: none;">
+                    <h3 class="ui header" id="otherContentTitle">Content</h3>
+                    <div class="ui center aligned container">
+                        <p id="otherContentText">Content would be displayed here.</p>
+                        <p class="ui grey text">This is a demo showing Semantic UI framework structure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    <script src="/static/js/semanticui.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/bulma.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar is-primary" role="navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <span class="icon is-large">
+                    <i class="fas fa-cube fa-2x"></i>
+                </span>
+                <span class="title is-4 has-text-white ml-2">Bulma Admin</span>
+                <span class="tag is-light ml-2">Bulma CSS</span>
+            </a>
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link has-text-white">
+                        <span class="icon">
+                            <i class="fas fa-bell"></i>
+                        </span>
+                        <span class="tag is-danger is-small">3</span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">New user registered</a>
+                        <a class="navbar-item">Order completed</a>
+                        <a class="navbar-item">System update</a>
+                    </div>
+                </div>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link has-text-white">
+                        <figure class="image is-32x32 mr-2">
+                            <img class="is-rounded" src="https://ui-avatars.com/api/?name=Bulma+User&background=00d1b2&color=fff">
+                        </figure>
+                        Bulma User
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            Profile
+                        </a>
+                        <a class="navbar-item">
+                            <span class="icon"><i class="fas fa-cog"></i></span>
+                            Settings
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="columns is-gapless">
+        <!-- Sidebar -->
+        <aside class="column is-2 sidebar-column">
+            <div class="menu p-4">
+                <p class="menu-label">General</p>
+                <ul class="menu-list">
+                    <li><a class="is-active" onclick="setActiveTab('dashboard')">
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        Dashboard
+                    </a></li>
+                    <li><a onclick="setActiveTab('users')">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        Users
+                    </a></li>
+                    <li><a onclick="setActiveTab('analytics')">
+                        <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                        Analytics
+                    </a></li>
+                </ul>
+
+                <p class="menu-label">Management</p>
+                <ul class="menu-list">
+                    <li><a onclick="setActiveTab('products')">
+                        <span class="icon"><i class="fas fa-box"></i></span>
+                        Products
+                    </a></li>
+                    <li><a onclick="setActiveTab('orders')">
+                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                        Orders
+                    </a></li>
+                    <li><a onclick="setActiveTab('inventory')">
+                        <span class="icon"><i class="fas fa-warehouse"></i></span>
+                        Inventory
+                    </a></li>
+                </ul>
+
+                <p class="menu-label">Settings</p>
+                <ul class="menu-list">
+                    <li><a onclick="setActiveTab('settings')">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        Configuration
+                    </a></li>
+                    <li><a onclick="setActiveTab('security')">
+                        <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                        Security
+                    </a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="column main-content">
+            <div class="container is-fluid p-4">
+                <!-- Page Header -->
+                <div class="level mb-5">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <div>
+                                <h1 class="title is-2" id="pageTitle">Dashboard</h1>
+                                <p class="subtitle is-5" id="pageSubtitle">Welcome to your Bulma admin dashboard</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            <div class="field is-grouped">
+                                <p class="control">
+                                    <button class="button is-primary">
+                                        <span class="icon"><i class="fas fa-download"></i></span>
+                                        <span>Export</span>
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="columns is-multiline mb-5" id="statsSection">
+                    <div class="column is-3">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div>
+                                            <p class="heading">Total Users</p>
+                                            <p class="title is-3">1,247</p>
+                                            <p class="has-text-success">
+                                                <span class="icon"><i class="fas fa-arrow-up"></i></span>
+                                                +12% from last month
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <span class="icon is-large has-text-primary">
+                                                <i class="fas fa-users fa-2x"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div>
+                                            <p class="heading">Revenue</p>
+                                            <p class="title is-3">$45,678</p>
+                                            <p class="has-text-success">
+                                                <span class="icon"><i class="fas fa-arrow-up"></i></span>
+                                                +8% from last month
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <span class="icon is-large has-text-success">
+                                                <i class="fas fa-dollar-sign fa-2x"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div>
+                                            <p class="heading">Orders</p>
+                                            <p class="title is-3">234</p>
+                                            <p class="has-text-danger">
+                                                <span class="icon"><i class="fas fa-arrow-down"></i></span>
+                                                -3% from last month
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <span class="icon is-large has-text-info">
+                                                <i class="fas fa-shopping-cart fa-2x"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div>
+                                            <p class="heading">Conversion</p>
+                                            <p class="title is-3">3.2%</p>
+                                            <p class="has-text-success">
+                                                <span class="icon"><i class="fas fa-arrow-up"></i></span>
+                                                +0.5% from last month
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <span class="icon is-large has-text-warning">
+                                                <i class="fas fa-chart-line fa-2x"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="card" id="usersTable">
+                    <header class="card-header">
+                        <p class="card-header-title">Recent Users</p>
+                        <div class="card-header-icon">
+                            <button class="button is-primary" onclick="addUser()">
+                                <span class="icon"><i class="fas fa-plus"></i></span>
+                                <span>Add User</span>
+                            </button>
+                        </div>
+                    </header>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table class="table is-fullwidth is-hoverable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTableBody">
+                                    <!-- Data populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Content -->
+                <div class="card" id="otherContent" style="display: none;">
+                    <header class="card-header">
+                        <p class="card-header-title" id="otherContentTitle">Content</p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content has-text-centered">
+                            <p id="otherContentText">Content would be displayed here.</p>
+                            <p class="is-size-6 has-text-grey">This is a demo showing Bulma CSS framework structure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/bulma.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardinal Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cardinal/1.0.0/cardinal.min.css">
+    <link rel="stylesheet" href="/static/css/cardinal.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="brand">
+                    <span class="brand-icon">🔴</span>
+                    <span class="brand-text">Cardinal Admin</span>
+                    <span class="tech-badge">Mobile First</span>
+                </div>
+                <nav class="header-nav">
+                    <div class="nav-item dropdown" id="notificationDropdown">
+                        <button class="nav-btn" id="notificationBtn">
+                            <span class="icon">🔔</span>
+                            <span class="badge">2</span>
+                        </button>
+                        <div class="dropdown-menu" id="notificationMenu">
+                            <div class="dropdown-header">
+                                <h4>Notifications</h4>
+                                <button class="close-btn" id="closeNotifications">×</button>
+                            </div>
+                            <div class="dropdown-body">
+                                <div class="notification-item">
+                                    <div class="notification-icon success">✓</div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">Task completed</div>
+                                        <div class="notification-desc">Your report is ready</div>
+                                        <div class="notification-time">Just now</div>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon info">ℹ</div>
+                                    <div class="notification-content">
+                                        <div class="notification-title">System update</div>
+                                        <div class="notification-desc">New features available</div>
+                                        <div class="notification-time">1 hour ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown" id="userDropdown">
+                        <button class="nav-btn user-btn" id="userBtn">
+                            <div class="user-avatar">CA</div>
+                            <span class="user-name">Cardinal User</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <div class="dropdown-menu" id="userMenu">
+                            <a href="#" class="dropdown-item">
+                                <span class="icon">👤</span>
+                                Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <span class="icon">⚙️</span>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <span class="icon">🚪</span>
+                                Sign out
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="user-avatar large">CA</div>
+                    <div class="user-info">
+                        <div class="user-name">Cardinal User</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-title">Main</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" data-tab="dashboard">
+                                <span class="nav-icon">📊</span>
+                                <span class="nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="users">
+                                <span class="nav-icon">👥</span>
+                                <span class="nav-text">Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="analytics">
+                                <span class="nav-icon">📈</span>
+                                <span class="nav-text">Analytics</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="products">
+                                <span class="nav-icon">📦</span>
+                                <span class="nav-text">Products</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="orders">
+                                <span class="nav-icon">🛒</span>
+                                <span class="nav-text">Orders</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">System</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="settings">
+                                <span class="nav-icon">⚙️</span>
+                                <span class="nav-text">Settings</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="support">
+                                <span class="nav-icon">💬</span>
+                                <span class="nav-text">Support</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-item">Home</span>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-item active" id="currentBreadcrumb">Dashboard</span>
+                </div>
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                <p class="page-subtitle" id="pageSubtitle">Welcome to your Cardinal admin dashboard</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card primary">
+                    <div class="stat-header">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value">7,892</div>
+                    </div>
+                    <div class="stat-body">
+                        <div class="stat-title">Total Users</div>
+                        <div class="stat-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-value">+28%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card success">
+                    <div class="stat-header">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value">$156,789</div>
+                    </div>
+                    <div class="stat-body">
+                        <div class="stat-title">Revenue</div>
+                        <div class="stat-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-value">+19%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card warning">
+                    <div class="stat-header">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-value">1,234</div>
+                    </div>
+                    <div class="stat-body">
+                        <div class="stat-title">Orders</div>
+                        <div class="stat-trend negative">
+                            <span class="trend-icon">↘</span>
+                            <span class="trend-value">-4%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card danger">
+                    <div class="stat-header">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-value">9.7%</div>
+                    </div>
+                    <div class="stat-body">
+                        <div class="stat-title">Conversion</div>
+                        <div class="stat-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-value">+4.2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="card" id="dataCard">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Users</h3>
+                    <button class="btn primary" id="addUserBtn">
+                        <span class="btn-icon">+</span>
+                        Add User
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Join Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="card" id="tabContent" style="display: none;">
+                <div class="card-body text-center">
+                    <div class="empty-state">
+                        <div class="empty-icon">📄</div>
+                        <h3 class="empty-title" id="emptyTitle">Content Area</h3>
+                        <p class="empty-description">This section would contain the specific content for the selected tab.</p>
+                        <p class="empty-note">This is a demo showcasing Cardinal framework patterns.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <script src="/static/js/cardinal.js"></script>
+</body>
+</html>

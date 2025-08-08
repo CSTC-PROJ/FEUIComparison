@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="/static/css/angular.css">
+</head>
+<body ng-app="adminApp" ng-controller="AdminController">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🅰️</span>
+                <span class="logo-text">Angular Admin</span>
+                <span class="tech-badge">Angular Native</span>
+            </div>
+            <div class="header-actions">
+                <button class="notification-btn" ng-click="toggleNotifications()">
+                    🔔
+                    <span class="notification-badge">{{notifications.length}}</span>
+                </button>
+                <div class="user-menu" ng-click="toggleUserMenu()">
+                    <div class="user-avatar">AN</div>
+                    <span>Angular User</span>
+                    <span>{{showUserMenu ? '▲' : '▼'}}</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-title">MAIN</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" ng-class="{active: activeTab === 'dashboard'}" ng-click="setActiveTab('dashboard')">
+                                <i class="nav-icon">📊</i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" ng-class="{active: activeTab === 'users'}" ng-click="setActiveTab('users')">
+                                <i class="nav-icon">👥</i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" ng-class="{active: activeTab === 'analytics'}" ng-click="setActiveTab('analytics')">
+                                <i class="nav-icon">📈</i>
+                                <span>Analytics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-title">MANAGEMENT</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" ng-class="{active: activeTab === 'products'}" ng-click="setActiveTab('products')">
+                                <i class="nav-icon">📦</i>
+                                <span>Products</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" ng-class="{active: activeTab === 'orders'}" ng-click="setActiveTab('orders')">
+                                <i class="nav-icon">🛒</i>
+                                <span>Orders</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <div class="page-header">
+                <h1 class="page-title">{{getTabTitle(activeTab)}}</h1>
+                <p class="page-subtitle">{{getTabSubtitle(activeTab)}}</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid" ng-show="activeTab === 'dashboard'">
+                <div class="stat-card" ng-repeat="stat in stats">
+                    <div class="stat-icon" ng-class="stat.iconClass">
+                        {{stat.icon}}
+                    </div>
+                    <div class="stat-value">{{stat.value}}</div>
+                    <div class="stat-label">{{stat.label}}</div>
+                    <div class="stat-change" ng-class="stat.changeType">
+                        {{stat.change}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="data-table" ng-show="activeTab === 'dashboard' || activeTab === 'users'">
+                <div class="table-header">
+                    <h3 class="table-title">Recent Users</h3>
+                    <button class="btn btn-primary" ng-click="addUser()">
+                        ➕ Add User
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in users">
+                                <td>{{user.name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>
+                                    <span class="badge" ng-class="getRoleBadgeClass(user.role)">
+                                        {{user.role}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-badge" ng-class="user.status">
+                                        {{user.status | capitalize}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary" ng-click="editUser(user)">
+                                        ✏️ Edit
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" ng-click="deleteUser(user.id)">
+                                        🗑️ Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Other Tab Content -->
+            <div class="data-table" ng-show="activeTab !== 'dashboard' && activeTab !== 'users'">
+                <div class="table-header">
+                    <h3 class="table-title">{{getTabTitle(activeTab)}}</h3>
+                </div>
+                <div class="empty-state">
+                    <p>{{getTabTitle(activeTab)}} content would be displayed here.</p>
+                    <p class="empty-subtitle">This is a demo showing Angular component structure.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="/static/js/angular.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantine Admin Portal - Frontend Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/mantine.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="mantine-header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon">🟠</span>
+                    <span class="logo-text">Mantine Admin</span>
+                    <span class="tech-badge">React Components</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="notification-btn" id="notificationBtn">
+                    <span class="notification-icon">🔔</span>
+                    <span class="notification-badge">4</span>
+                </button>
+                <div class="user-menu" id="userMenu">
+                    <div class="user-avatar">MA</div>
+                    <span class="user-name">Mantine User</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-content">
+                <div class="nav-section">
+                    <div class="nav-title">Navigation</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" data-tab="dashboard">
+                                <span class="nav-icon">📊</span>
+                                <span class="nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="users">
+                                <span class="nav-icon">👥</span>
+                                <span class="nav-text">Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="analytics">
+                                <span class="nav-icon">📈</span>
+                                <span class="nav-text">Analytics</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="products">
+                                <span class="nav-icon">📦</span>
+                                <span class="nav-text">Products</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="orders">
+                                <span class="nav-icon">🛒</span>
+                                <span class="nav-text">Orders</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">Settings</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="settings">
+                                <span class="nav-icon">⚙️</span>
+                                <span class="nav-text">Configuration</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-tab="profile">
+                                <span class="nav-icon">👤</span>
+                                <span class="nav-text">Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <div class="page-header">
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                <p class="page-subtitle" id="pageSubtitle">Welcome to your Mantine admin dashboard</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card primary">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <div class="stat-value">2,847</div>
+                        <div class="stat-label">Total Users</div>
+                        <div class="stat-change positive">↗ +15%</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card success">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <div class="stat-value">$67,890</div>
+                        <div class="stat-label">Revenue</div>
+                        <div class="stat-change positive">↗ +12%</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card warning">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-content">
+                        <div class="stat-value">456</div>
+                        <div class="stat-label">Orders</div>
+                        <div class="stat-change negative">↘ -2%</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card info">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <div class="stat-value">4.8%</div>
+                        <div class="stat-label">Conversion</div>
+                        <div class="stat-change positive">↗ +0.8%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="data-table" id="dataTable">
+                <div class="table-header">
+                    <h3 class="table-title">Recent Users</h3>
+                    <button class="btn primary" id="addUserBtn">
+                        <span class="btn-icon">➕</span>
+                        Add User
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Join Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Content for other tabs -->
+            <div class="tab-content" id="tabContent" style="display: none;">
+                <div class="empty-state">
+                    <div class="empty-icon">📄</div>
+                    <h3 class="empty-title" id="emptyTitle">Content Area</h3>
+                    <p class="empty-description">This section would contain the specific content for the selected tab.</p>
+                    <p class="empty-note">This is a demo showcasing Mantine-inspired design patterns.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Dropdown -->
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-header">
+            <h4>Notifications</h4>
+            <button class="close-btn" id="closeNotifications">✕</button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item">
+                <div class="notification-icon success">✓</div>
+                <div class="notification-content">
+                    <div class="notification-title">User registered</div>
+                    <div class="notification-time">2 minutes ago</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon warning">⚠</div>
+                <div class="notification-content">
+                    <div class="notification-title">System maintenance</div>
+                    <div class="notification-time">1 hour ago</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon info">ℹ</div>
+                <div class="notification-content">
+                    <div class="notification-title">Update available</div>
+                    <div class="notification-time">3 hours ago</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/mantine.js"></script>
+</body>
+</html>

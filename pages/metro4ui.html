@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro 4 UI Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <link rel="stylesheet" href="/static/css/metro4ui.css">
+</head>
+<body class="m4-cloak">
+    <div class="container-fluid">
+        <!-- App Bar -->
+        <div class="app-bar fixed-top" data-role="appbar" data-expand-point="md">
+            <a href="#" class="brand no-hover">
+                <span class="mif-windows icon"></span>
+                <span class="brand-label">Metro 4 Admin</span>
+                <span class="badge inline bg-orange fg-white ml-2">Windows Style</span>
+            </a>
+            
+            <ul class="app-bar-menu ml-auto">
+                <li>
+                    <a href="#" class="dropdown-toggle" id="notificationToggle">
+                        <span class="mif-bell icon"></span>
+                        <span class="badge bg-red fg-white">4</span>
+                    </a>
+                    <ul class="d-menu" data-role="dropdown" data-toggle-element="#notificationToggle">
+                        <li class="menu-title">Notifications</li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" class="d-flex">
+                                <div class="icon-container bg-green fg-white mr-2">
+                                    <span class="mif-checkmark"></span>
+                                </div>
+                                <div>
+                                    <div class="text-bold">Task completed</div>
+                                    <div class="text-small text-muted">Report generated successfully</div>
+                                    <div class="text-small text-muted">5 minutes ago</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex">
+                                <div class="icon-container bg-blue fg-white mr-2">
+                                    <span class="mif-info"></span>
+                                </div>
+                                <div>
+                                    <div class="text-bold">System update</div>
+                                    <div class="text-small text-muted">New features available</div>
+                                    <div class="text-small text-muted">2 hours ago</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex">
+                                <div class="icon-container bg-orange fg-white mr-2">
+                                    <span class="mif-warning"></span>
+                                </div>
+                                <div>
+                                    <div class="text-bold">Maintenance scheduled</div>
+                                    <div class="text-small text-muted">Tonight at 2:00 AM</div>
+                                    <div class="text-small text-muted">1 day ago</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" id="userToggle">
+                        <span class="avatar">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiMwMDc4RDQiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIj5NVTwvdGV4dD4KPHN2Zz4=" alt="User">
+                        </span>
+                        <span class="ml-1">Metro User</span>
+                    </a>
+                    <ul class="d-menu" data-role="dropdown" data-toggle-element="#userToggle">
+                        <li><a href="#"><span class="mif-profile icon"></span> Profile</a></li>
+                        <li><a href="#"><span class="mif-cogs icon"></span> Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><span class="mif-exit icon"></span> Sign out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="row no-gutters" style="margin-top: 52px;">
+            <!-- Sidebar -->
+            <div class="cell-3 bg-dark fg-white sidebar">
+                <nav class="navigation-drawer">
+                    <div class="navigation-drawer-header">
+                        <div class="text-center p-4">
+                            <div class="avatar large">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMzIiIGZpbGw9IiMwMDc4RDQiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSJib2xkIj5NVTwvdGV4dD4KPHN2Zz4=" alt="User">
+                            </div>
+                            <div class="text-bold mt-2">Metro User</div>
+                            <div class="text-small text-muted">Administrator</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="navigation-menu">
+                        <li class="item-header">Main</li>
+                        <li>
+                            <a href="#" class="nav-link active" data-tab="dashboard">
+                                <span class="mif-apps icon"></span>
+                                <span class="caption">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-tab="users">
+                                <span class="mif-users icon"></span>
+                                <span class="caption">Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-tab="analytics">
+                                <span class="mif-chart-line icon"></span>
+                                <span class="caption">Analytics</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-tab="products">
+                                <span class="mif-box icon"></span>
+                                <span class="caption">Products</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-tab="orders">
+                                <span class="mif-cart icon"></span>
+                                <span class="caption">Orders</span>
+                            </a>
+                        </li>
+                        
+                        <li class="item-header">System</li>
+                        <li>
+                            <a href="#" class="nav-link" data-tab="settings">
+                                <span class="mif-cogs icon"></span>
+                                <span class="caption">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-tab="help">
+                                <span class="mif-help icon"></span>
+                                <span class="caption">Help</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Content Area -->
+            <div class="cell-9 content-area">
+                <div class="p-4">
+                    <!-- Page Header -->
+                    <div class="mb-4">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumbs">
+                                <li class="page-item"><a href="#" class="page-link">Home</a></li>
+                                <li class="page-item active" id="breadcrumbCurrent">Dashboard</li>
+                            </ol>
+                        </nav>
+                        <h1 class="text-leader2 mt-2" id="pageTitle">Dashboard</h1>
+                        <p class="text-muted" id="pageSubtitle">Welcome to your Metro 4 admin dashboard</p>
+                    </div>
+
+                    <!-- Stats Tiles -->
+                    <div class="row" id="statsRow">
+                        <div class="cell-3">
+                            <div class="tile-large bg-blue fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                    <span class="mif-users icon"></span>
+                                    <span class="tile-label">Users</span>
+                                    <span class="tile-badge bg-white fg-blue">6,847</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell-3">
+                            <div class="tile-large bg-green fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                    <span class="mif-dollar icon"></span>
+                                    <span class="tile-label">Revenue</span>
+                                    <span class="tile-badge bg-white fg-green">$123,456</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell-3">
+                            <div class="tile-large bg-orange fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                    <span class="mif-cart icon"></span>
+                                    <span class="tile-label">Orders</span>
+                                    <span class="tile-badge bg-white fg-orange">892</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell-3">
+                            <div class="tile-large bg-red fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                    <span class="mif-chart-line icon"></span>
+                                    <span class="tile-label">Conversion</span>
+                                    <span class="tile-badge bg-white fg-red">8.4%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Table -->
+                    <div class="mt-4" id="dataTableContainer">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex flex-justify-between flex-align-center">
+                                    <div class="card-title">Recent Users</div>
+                                    <button class="button primary" id="addUserBtn">
+                                        <span class="mif-plus icon"></span>
+                                        Add User
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-content p-0">
+                                <table class="table striped table-border" data-role="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Join Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="userTableBody">
+                                        <!-- Data will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="mt-4" id="tabContent" style="display: none;">
+                        <div class="card">
+                            <div class="card-content text-center p-8">
+                                <div class="mb-4">
+                                    <span class="mif-file-text icon" style="font-size: 4rem; opacity: 0.3;"></span>
+                                </div>
+                                <h3 class="text-leader" id="emptyTitle">Content Area</h3>
+                                <p class="text-muted mb-2">This section would contain the specific content for the selected tab.</p>
+                                <p class="text-small text-muted">This is a demo showcasing Metro 4 UI component patterns.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script src="/static/js/metro4ui.js"></script>
+</body>
+</html>

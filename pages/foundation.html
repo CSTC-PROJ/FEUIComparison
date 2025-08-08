@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/foundation.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li class="menu-text">
+                    <i class="fas fa-cube"></i> Foundation Admin
+                    <span class="badge">Foundation 6</span>
+                </li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li>
+                    <a href="#" class="notification-link">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge alert">3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="user-link">
+                        <img src="https://ui-avatars.com/api/?name=Foundation+User&background=1779ba&color=fff" alt="User" class="user-avatar">
+                        Foundation User
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid-x">
+        <!-- Sidebar -->
+        <div class="cell large-2 sidebar">
+            <ul class="vertical menu">
+                <li class="menu-text">MAIN</li>
+                <li class="is-active"><a onclick="setActiveTab('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a onclick="setActiveTab('users')"><i class="fas fa-users"></i> Users</a></li>
+                <li><a onclick="setActiveTab('analytics')"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                
+                <li class="menu-text">MANAGEMENT</li>
+                <li><a onclick="setActiveTab('products')"><i class="fas fa-box"></i> Products</a></li>
+                <li><a onclick="setActiveTab('orders')"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                
+                <li class="menu-text">SETTINGS</li>
+                <li><a onclick="setActiveTab('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="cell large-10 main-content">
+            <div class="grid-container">
+                <!-- Page Header -->
+                <div class="grid-x grid-margin-x align-justify">
+                    <div class="cell auto">
+                        <h1 id="pageTitle">Dashboard</h1>
+                        <p class="lead" id="pageSubtitle">Welcome to your Foundation admin dashboard</p>
+                    </div>
+                    <div class="cell shrink">
+                        <button class="button primary" onclick="exportData()">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-4" id="statsGrid">
+                    <div class="cell">
+                        <div class="card stats-card">
+                            <div class="card-section">
+                                <div class="grid-x align-justify align-middle">
+                                    <div class="cell auto">
+                                        <h4>1,247</h4>
+                                        <p class="subheader">Total Users</p>
+                                        <span class="success-color">↗ +12%</span>
+                                    </div>
+                                    <div class="cell shrink">
+                                        <i class="fas fa-users fa-2x primary-color"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cell">
+                        <div class="card stats-card">
+                            <div class="card-section">
+                                <div class="grid-x align-justify align-middle">
+                                    <div class="cell auto">
+                                        <h4>$45,678</h4>
+                                        <p class="subheader">Revenue</p>
+                                        <span class="success-color">↗ +8%</span>
+                                    </div>
+                                    <div class="cell shrink">
+                                        <i class="fas fa-dollar-sign fa-2x success-color"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cell">
+                        <div class="card stats-card">
+                            <div class="card-section">
+                                <div class="grid-x align-justify align-middle">
+                                    <div class="cell auto">
+                                        <h4>234</h4>
+                                        <p class="subheader">Orders</p>
+                                        <span class="alert-color">↘ -3%</span>
+                                    </div>
+                                    <div class="cell shrink">
+                                        <i class="fas fa-shopping-cart fa-2x warning-color"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cell">
+                        <div class="card stats-card">
+                            <div class="card-section">
+                                <div class="grid-x align-justify align-middle">
+                                    <div class="cell auto">
+                                        <h4>3.2%</h4>
+                                        <p class="subheader">Conversion</p>
+                                        <span class="success-color">↗ +0.5%</span>
+                                    </div>
+                                    <div class="cell shrink">
+                                        <i class="fas fa-chart-line fa-2x secondary-color"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="card" id="usersTable">
+                    <div class="card-divider">
+                        <div class="grid-x align-justify align-middle">
+                            <div class="cell auto">
+                                <h4>Recent Users</h4>
+                            </div>
+                            <div class="cell shrink">
+                                <button class="button primary" onclick="addUser()">
+                                    <i class="fas fa-plus"></i> Add User
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-section">
+                        <table class="table hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody">
+                                <!-- Data populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Other Content -->
+                <div class="card hide" id="otherContent">
+                    <div class="card-divider">
+                        <h4 id="otherContentTitle">Content</h4>
+                    </div>
+                    <div class="card-section text-center">
+                        <p id="otherContentText">Content would be displayed here.</p>
+                        <p class="subheader">This is a demo showing Foundation framework structure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"></script>
+    <script src="/static/js/foundation.js"></script>
+</body>
+</html>

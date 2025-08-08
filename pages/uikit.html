@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UIKit Admin Portal - Frontend Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/static/css/uikit.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" href="#">
+                <span uk-icon="icon: grid; ratio: 1.5" class="uk-margin-small-right"></span>
+                UIKit Admin
+                <span class="uk-badge uk-margin-small-left">UIKit</span>
+            </a>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#" uk-icon="icon: bell">
+                        <span class="uk-badge uk-position-top-right">3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="uk-border-circle" width="30" height="30" src="https://ui-avatars.com/api/?name=UIKit+User&background=1e87f0&color=fff">
+                        UIKit User
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="uk-flex">
+        <!-- Sidebar -->
+        <div class="uk-width-1-5 sidebar">
+            <ul class="uk-nav uk-nav-default" uk-nav>
+                <li class="uk-nav-header">Main</li>
+                <li class="uk-active"><a href="#" onclick="setActiveTab('dashboard')"><span uk-icon="home"></span> Dashboard</a></li>
+                <li><a href="#" onclick="setActiveTab('users')"><span uk-icon="users"></span> Users</a></li>
+                <li><a href="#" onclick="setActiveTab('analytics')"><span uk-icon="trending-up"></span> Analytics</a></li>
+                
+                <li class="uk-nav-header">Management</li>
+                <li><a href="#" onclick="setActiveTab('products')"><span uk-icon="bag"></span> Products</a></li>
+                <li><a href="#" onclick="setActiveTab('orders')"><span uk-icon="cart"></span> Orders</a></li>
+                
+                <li class="uk-nav-header">Settings</li>
+                <li><a href="#" onclick="setActiveTab('settings')"><span uk-icon="cog"></span> Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="uk-width-4-5 main-content">
+            <div class="uk-container uk-container-expand">
+                <!-- Header -->
+                <div class="uk-margin-large-top uk-margin-bottom">
+                    <h1 class="uk-heading-medium" id="pageTitle">Dashboard</h1>
+                    <p class="uk-text-muted" id="pageSubtitle">Welcome to your UIKit admin dashboard</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="uk-grid-match uk-child-width-1-4@m uk-margin-bottom" uk-grid id="statsGrid">
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+                            <div class="uk-flex uk-flex-between uk-flex-middle">
+                                <div>
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">1,247</h3>
+                                    <p class="uk-text-muted uk-margin-remove-top">Total Users</p>
+                                    <span class="uk-text-success">↗ +12%</span>
+                                </div>
+                                <span uk-icon="icon: users; ratio: 2" class="uk-text-primary"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+                            <div class="uk-flex uk-flex-between uk-flex-middle">
+                                <div>
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">$45,678</h3>
+                                    <p class="uk-text-muted uk-margin-remove-top">Revenue</p>
+                                    <span class="uk-text-success">↗ +8%</span>
+                                </div>
+                                <span uk-icon="icon: credit-card; ratio: 2" class="uk-text-success"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+                            <div class="uk-flex uk-flex-between uk-flex-middle">
+                                <div>
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">234</h3>
+                                    <p class="uk-text-muted uk-margin-remove-top">Orders</p>
+                                    <span class="uk-text-danger">↘ -3%</span>
+                                </div>
+                                <span uk-icon="icon: cart; ratio: 2" class="uk-text-warning"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+                            <div class="uk-flex uk-flex-between uk-flex-middle">
+                                <div>
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">3.2%</h3>
+                                    <p class="uk-text-muted uk-margin-remove-top">Conversion</p>
+                                    <span class="uk-text-success">↗ +0.5%</span>
+                                </div>
+                                <span uk-icon="icon: trending-up; ratio: 2" class="uk-text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="uk-card uk-card-default" id="usersTable">
+                    <div class="uk-card-header">
+                        <div class="uk-flex uk-flex-between uk-flex-middle">
+                            <h3 class="uk-card-title">Recent Users</h3>
+                            <button class="uk-button uk-button-primary" onclick="addUser()">
+                                <span uk-icon="plus"></span> Add User
+                            </button>
+                        </div>
+                    </div>
+                    <div class="uk-card-body">
+                        <div class="uk-overflow-auto">
+                            <table class="uk-table uk-table-hover uk-table-divider">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTableBody">
+                                    <!-- Data populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Content -->
+                <div class="uk-card uk-card-default uk-hidden" id="otherContent">
+                    <div class="uk-card-header">
+                        <h3 class="uk-card-title" id="otherContentTitle">Content</h3>
+                    </div>
+                    <div class="uk-card-body">
+                        <div class="uk-text-center">
+                            <p id="otherContentText">Content would be displayed here.</p>
+                            <p class="uk-text-muted">This is a demo showing UIKit framework structure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.11/dist/js/uikit-icons.min.js"></script>
+    <script src="/static/js/uikit.js"></script>
+</body>
+</html>
