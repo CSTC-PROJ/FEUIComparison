@@ -1,0 +1,188 @@
+/* Custom Bulma Admin Styles */
+
+.sidebar-column {
+    background: #fafafa;
+    border-right: 1px solid #dbdbdb;
+    min-height: calc(100vh - 52px);
+}
+
+.main-content {
+    background: #f5f5f5;
+    min-height: calc(100vh - 52px);
+}
+
+.stats-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.menu-list a {
+    border-radius: 6px;
+    margin-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-list a:hover {
+    background-color: #00d1b2;
+    color: white;
+}
+
+.menu-list a.is-active {
+    background-color: #00d1b2;
+    color: white;
+    font-weight: 600;
+}
+
+.navbar-item .tag {
+    margin-left: 0.5rem;
+}
+
+.table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #363636;
+}
+
+.table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+/* Custom status badges */
+.tag.is-status-active {
+    background-color: #48c774;
+    color: white;
+}
+
+.tag.is-status-inactive {
+    background-color: #f14668;
+    color: white;
+}
+
+.tag.is-status-pending {
+    background-color: #ffdd57;
+    color: #363636;
+}
+
+/* Role badges */
+.tag.is-role-admin {
+    background-color: #f14668;
+    color: white;
+}
+
+.tag.is-role-user {
+    background-color: #3273dc;
+    color: white;
+}
+
+.tag.is-role-moderator {
+    background-color: #ffdd57;
+    color: #363636;
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Custom scrollbar */
+.sidebar-column::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-column::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.sidebar-column::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.sidebar-column::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .sidebar-column {
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .columns.is-gapless {
+        flex-direction: column;
+    }
+}
+
+/* Loading states */
+.is-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.is-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid #dbdbdb;
+    border-radius: 50%;
+    border-top-color: #00d1b2;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Enhanced hover effects */
+.button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Custom notification styles */
+.notification.is-custom {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    z-index: 1000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

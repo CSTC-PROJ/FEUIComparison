@@ -1,0 +1,532 @@
+/* Chakra UI Admin Portal Custom Styles */
+
+/* Base styles for Chakra UI components */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: #f7fafc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout Components */
+.chakra-app {
+    min-height: 100vh;
+    background-color: #f7fafc;
+}
+
+.chakra-header {
+    background: linear-gradient(135deg, #805ad5 0%, #9f7aea 100%);
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.chakra-sidebar {
+    width: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: calc(100vh - 72px);
+    padding: 2rem 1rem;
+    color: white;
+}
+
+.chakra-main-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f7fafc;
+}
+
+.chakra-container {
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
+/* Flex and Grid */
+.chakra-flex {
+    display: flex;
+}
+
+.chakra-vstack {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+}
+
+.chakra-hstack {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.chakra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Typography */
+.chakra-heading {
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+}
+
+.chakra-text {
+    color: #4a5568;
+    margin: 0;
+}
+
+/* Cards */
+.chakra-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f7fafc;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Stats */
+.chakra-stat {
+    padding: 2rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #4a5568;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-help {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.stat-help.positive {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.stat-help.negative {
+    background: #fed7d7;
+    color: #742a2a;
+}
+
+.stat-icon {
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+/* Buttons */
+.chakra-button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 0.25rem;
+}
+
+.chakra-button:hover,
+.chakra-button.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.chakra-button-primary {
+    background: #805ad5;
+    color: white;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+}
+
+.chakra-button-primary:hover {
+    background: #6b46c1;
+}
+
+.chakra-button-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    background: #e2e8f0;
+    color: #2d3748;
+    margin-right: 0.5rem;
+}
+
+.chakra-button-sm:hover {
+    background: #cbd5e0;
+}
+
+.chakra-button-danger {
+    background: #f56565 !important;
+    color: white !important;
+}
+
+.chakra-button-danger:hover {
+    background: #e53e3e !important;
+}
+
+/* Badges */
+.chakra-badge {
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    border-radius: 6px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+.chakra-badge.role-admin {
+    background: #fed7d7;
+    color: #742a2a;
+}
+
+.chakra-badge.role-user {
+    background: #bee3f8;
+    color: #2a4365;
+}
+
+.chakra-badge.role-moderator {
+    background: #feebc8;
+    color: #744210;
+}
+
+.chakra-badge.status-active {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.chakra-badge.status-inactive {
+    background: #fed7d7;
+    color: #742a2a;
+}
+
+.chakra-badge.status-pending {
+    background: #feebc8;
+    color: #744210;
+}
+
+/* Avatar */
+.chakra-avatar {
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.chakra-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* Table */
+.chakra-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.chakra-table th {
+    background-color: #f7fafc;
+    font-weight: 600;
+    color: #2d3748;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.chakra-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.chakra-table tbody tr:hover {
+    background-color: #f7fafc;
+}
+
+/* Custom animations for Chakra components */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Loading spinner for buttons */
+@keyframes spin {
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+/* Custom hover effects */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chakra-container {
+        padding: 1rem;
+    }
+    
+    .chakra-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chakra-sidebar {
+        width: 100%;
+        position: relative;
+    }
+}
+
+/* Custom focus styles */
+.chakra-button:focus,
+.chakra-input:focus {
+    outline: 2px solid #805ad5;
+    outline-offset: 2px;
+}
+
+/* Enhanced card styles */
+.chakra-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.chakra-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Custom badge styles */
+.chakra-badge {
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    border-radius: 6px;
+    padding: 0.25rem 0.75rem;
+}
+
+/* Table enhancements */
+.chakra-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chakra-table th {
+    background-color: #f7fafc;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.chakra-table tbody tr:hover {
+    background-color: #f7fafc;
+}
+
+/* Menu enhancements */
+.chakra-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid #e2e8f0;
+}
+
+.chakra-menu-item:hover {
+    background-color: #f7fafc;
+}
+
+/* Avatar enhancements */
+.chakra-avatar {
+    transition: transform 0.3s ease;
+}
+
+.chakra-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* Button enhancements */
+.chakra-button {
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.chakra-button:hover {
+    transform: translateY(-1px);
+}
+
+/* Stat enhancements */
+.chakra-stat {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.chakra-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Sidebar enhancements */
+.chakra-sidebar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    backdrop-filter: blur(10px);
+}
+
+.chakra-sidebar .chakra-button {
+    color: rgba(255, 255, 255, 0.8);
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+.chakra-sidebar .chakra-button:hover,
+.chakra-sidebar .chakra-button[data-active="true"] {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+/* Header enhancements */
+.chakra-header {
+    background: linear-gradient(135deg, #805ad5 0%, #9f7aea 100%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Text enhancements */
+.chakra-heading {
+    font-weight: 700;
+    color: #2d3748;
+}
+
+.chakra-text {
+    color: #4a5568;
+}
+
+/* Icon enhancements */
+.chakra-icon {
+    transition: transform 0.3s ease;
+}
+
+.chakra-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Container enhancements */
+.chakra-container {
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
+/* Grid enhancements */
+.chakra-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Flex enhancements */
+.chakra-flex {
+    display: flex;
+}
+
+/* Stack enhancements */
+.chakra-vstack {
+    display: flex;
+    flex-direction: column;
+}
+
+.chakra-hstack {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

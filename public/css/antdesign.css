@@ -1,0 +1,713 @@
+/* Ant Design Admin Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 1.5715;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.ant-header {
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    height: 64px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 24px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    font-size: 28px;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1890ff;
+}
+
+.tech-badge {
+    background: #f6ffed;
+    border: 1px solid #b7eb8f;
+    color: #52c41a;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Notification Styles */
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-btn {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.notification-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.notification-icon {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.notification-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff4d4f;
+    color: white;
+    font-size: 10px;
+    padding: 0 4px;
+    border-radius: 8px;
+    min-width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(50%, -50%);
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    z-index: 1001;
+    display: none;
+    margin-top: 8px;
+}
+
+.notification-dropdown.show {
+    display: block;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.notification-header h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.close-btn:hover {
+    background: #f5f5f5;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.notification-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+.notification-item:hover {
+    background: #fafafa;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.notification-avatar.success {
+    background: #f6ffed;
+    color: #52c41a;
+}
+
+.notification-avatar.warning {
+    background: #fffbe6;
+    color: #faad14;
+}
+
+.notification-avatar.info {
+    background: #e6f7ff;
+    color: #1890ff;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 4px;
+}
+
+.notification-desc {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 4px;
+}
+
+.notification-time {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+/* User Dropdown */
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background: #1890ff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.user-name {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+/* Layout */
+.ant-layout {
+    display: flex;
+    margin-top: 64px;
+    min-height: calc(100vh - 64px);
+}
+
+/* Sidebar */
+.ant-sider {
+    width: 256px;
+    background: #ffffff;
+    border-right: 1px solid #f0f0f0;
+    position: fixed;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+}
+
+.sider-menu {
+    padding: 16px 0;
+}
+
+.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    margin-bottom: 4px;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    color: rgba(0, 0, 0, 0.65);
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 0;
+    position: relative;
+}
+
+.menu-link:hover {
+    color: #1890ff;
+    background-color: #e6f7ff;
+}
+
+.menu-link.active {
+    color: #1890ff;
+    background-color: #e6f7ff;
+    font-weight: 500;
+}
+
+.menu-link.active::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #1890ff;
+}
+
+.menu-icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.menu-title {
+    font-size: 14px;
+}
+
+.menu-divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 16px 24px;
+}
+
+/* Content */
+.ant-content {
+    flex: 1;
+    margin-left: 256px;
+    padding: 24px;
+    background: #f0f2f5;
+}
+
+.content-header {
+    margin-bottom: 24px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.breadcrumb-item {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.breadcrumb-item.current {
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.breadcrumb-separator {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 8px;
+}
+
+.page-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+/* Statistics */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 24px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-content {
+    margin-bottom: 16px;
+}
+
+.stat-value {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 8px;
+}
+
+.stat-title {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.stat-icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 32px;
+    opacity: 0.2;
+}
+
+.stat-trend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.stat-trend.positive {
+    color: #52c41a;
+}
+
+.stat-trend.negative {
+    color: #ff4d4f;
+}
+
+.trend-icon {
+    font-size: 14px;
+}
+
+/* Card */
+.ant-card {
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+    margin-bottom: 24px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.card-body {
+    padding: 0;
+}
+
+/* Button */
+.ant-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 15px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #ffffff;
+    color: rgba(0, 0, 0, 0.85);
+    text-decoration: none;
+}
+
+.ant-btn:hover {
+    border-color: #40a9ff;
+    color: #40a9ff;
+}
+
+.ant-btn.primary {
+    background: #1890ff;
+    border-color: #1890ff;
+    color: #ffffff;
+}
+
+.ant-btn.primary:hover {
+    background: #40a9ff;
+    border-color: #40a9ff;
+}
+
+.ant-btn.danger {
+    background: #ff4d4f;
+    border-color: #ff4d4f;
+    color: #ffffff;
+}
+
+.ant-btn.danger:hover {
+    background: #ff7875;
+    border-color: #ff7875;
+}
+
+.btn-icon {
+    font-size: 12px;
+}
+
+/* Table */
+.ant-table {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.table th,
+.table td {
+    padding: 16px 24px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.table th {
+    background: #fafafa;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.table td {
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.table tbody tr:hover {
+    background: #fafafa;
+}
+
+/* Status and Role Badges */
+.status-badge,
+.role-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.status-badge.active {
+    background: #f6ffed;
+    color: #52c41a;
+    border: 1px solid #b7eb8f;
+}
+
+.status-badge.inactive {
+    background: #f5f5f5;
+    color: rgba(0, 0, 0, 0.45);
+    border: 1px solid #d9d9d9;
+}
+
+.status-badge.pending {
+    background: #fffbe6;
+    color: #faad14;
+    border: 1px solid #ffe58f;
+}
+
+.role-badge {
+    background: #e6f7ff;
+    color: #1890ff;
+    border: 1px solid #91d5ff;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action-btn.edit:hover {
+    border-color: #1890ff;
+    color: #1890ff;
+}
+
+.action-btn.delete:hover {
+    border-color: #ff4d4f;
+    color: #ff4d4f;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 48px 24px;
+}
+
+.empty-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.25;
+}
+
+.empty-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 8px;
+}
+
+.empty-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 4px;
+}
+
+.empty-note {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ant-sider {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+    
+    .ant-content {
+        margin-left: 0;
+        padding: 16px;
+    }
+    
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .header-content {
+        padding: 0 16px;
+    }
+    
+    .logo-text {
+        display: none;
+    }
+    
+    .notification-dropdown {
+        right: -100px;
+        width: 280px;
+    }
+}
+
+/* Scrollbar Styling */
+.ant-sider::-webkit-scrollbar,
+.notification-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ant-sider::-webkit-scrollbar-track,
+.notification-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.ant-sider::-webkit-scrollbar-thumb,
+.notification-list::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+    border-radius: 3px;
+}
+
+.ant-sider::-webkit-scrollbar-thumb:hover,
+.notification-list::-webkit-scrollbar-thumb:hover {
+    background: #bfbfbf;
+}

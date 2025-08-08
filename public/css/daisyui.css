@@ -1,0 +1,270 @@
+/* DaisyUI Admin Portal Custom Styles */
+
+/* Custom theme colors */
+:root {
+    --primary: #570df8;
+    --secondary: #f000b8;
+    --accent: #37cdbe;
+    --neutral: #3d4451;
+    --base-100: #ffffff;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Enhanced hover effects */
+.stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Custom status badges */
+.badge-status-active {
+    @apply badge-success;
+}
+
+.badge-status-inactive {
+    @apply badge-error;
+}
+
+.badge-status-pending {
+    @apply badge-warning;
+}
+
+/* Custom role badges */
+.badge-role-admin {
+    @apply badge-error;
+}
+
+.badge-role-user {
+    @apply badge-primary;
+}
+
+.badge-role-moderator {
+    @apply badge-warning;
+}
+
+/* Enhanced table styles */
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #374151;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Custom drawer styles */
+.drawer-side {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.drawer-side .menu {
+    background: transparent;
+}
+
+.drawer-side .menu li > a {
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+}
+
+.drawer-side .menu li > a:hover,
+.drawer-side .menu li > a.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+/* Loading states */
+.btn.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Custom notification styles */
+.notification-custom {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Avatar enhancements */
+.avatar img {
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover img {
+    transform: scale(1.1);
+}
+
+/* Stats enhancements */
+.stat-figure svg {
+    transition: transform 0.3s ease;
+}
+
+.stat:hover .stat-figure svg {
+    transform: scale(1.1);
+}
+
+/* Button enhancements */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Custom scrollbar */
+.drawer-side::-webkit-scrollbar {
+    width: 6px;
+}
+
+.drawer-side::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.drawer-side::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.drawer-side::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+    
+    .drawer-content {
+        padding: 1rem;
+    }
+}
+
+/* Theme toggle */
+[data-theme="dark"] {
+    --primary: #661ae6;
+    --secondary: #d926aa;
+    --accent: #1fb2a5;
+    --neutral: #191d24;
+    --base-100: #2a303c;
+}
+
+/* Custom focus styles */
+.btn:focus,
+.input:focus,
+.select:focus,
+.textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Enhanced dropdown styles */
+.dropdown-content {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Custom badge styles */
+.badge {
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+/* Table enhancements */
+.table-zebra tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Card enhancements */
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--neutral);
+}
+
+/* Menu enhancements */
+.menu li > a {
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+}
+
+.menu .menu-title {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
